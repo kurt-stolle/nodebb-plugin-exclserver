@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-exclserver",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ExclServer integration for NodeBB",
   "repository": {
     "type": "git",
