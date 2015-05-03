@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/kurt-stolle/nodebb-plugin-exclserver.git"
   },
-  "main": "./lib/index.js",
+  "main": "./library.js",
   "dependencies": {
     "game-server-query": "^1.0.0",
     "request": "^2.55.0"

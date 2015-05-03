@@ -1,16 +1,15 @@
 {
-    "id": "nodebb-plugin-exclserver",
-    "name": "ExclServern",
-    "description": "ExclServer integration for NodeBB",
-    "url": "https://github.com/kurt-stolle/nodebb-plugin-exclserver",
-    "library": "./lib/index.js",
-    "templates": "./templates",
-    "hooks": [
-  		{
-  			"hook": "static:app.load", "method": "init"
-  		},
-      {
-  			"hook": "filter:admin.header.build", "method": "addAdminNavigation"
-  		}
-    ]
+  "id": "nodebb-plugin-exclserver",
+  "name": "ExclServern",
+  "description": "ExclServer integration for NodeBB",
+  "url": "https://github.com/kurt-stolle/nodebb-plugin-exclserver",
+  "library": "./library.js",
+  "templates": "./templates",
+  "hooks": [{
+    "hook": "static:app.load",
+    "method": "init"
+  }, {
+    "hook": "filter:admin.header.build",
+    "method": "addAdminNavigation"
+  }]
 }
