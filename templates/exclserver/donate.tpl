@@ -1,6 +1,6 @@
 <div class="jumbotron">
   <h1>Hello, future donator.</h1>
-<p>On this page you can make a donation to Casual Bananas. For each 1 USD you donate we will reward you 1000 in-game bananas that can be used to buy various items and effects through ExclServer.</p>
+  <p>On this page you can make a donation to Casual Bananas. For each 1 USD you donate we will reward you 1000 in-game bananas that can be used to buy various items and effects through ExclServer.</p>
 </div>
 <div class="container-fluid">
   <div class="row">
@@ -99,36 +99,39 @@
     </div>
   </div>
 
-<script>
+  <script>
+    'use strict';
 
-'use strict';
+    (function() {
+      function prepareDonation() {
+        var sid = String($('#in-steam').val());
+        var amt = Number($('#in-amount').val());
 
-function prepareDonation(){
-  var sid=String($('#in-steam').val());
-  var amt=Number($('#in-amount').val());
+        if (isNaN(amt)) {
+          return;
+        }
 
-  if (isNaN(amt)) {
-    return;
-  }
+        amt = Math.floor(amt);
 
-  amt=Math.floor(amt);
+        sid.replace("STEAM_0:", "")
 
-  sid.replace("STEAM_0:","")
+        sid = "STEAM_0:" + sid;
 
-  sid = "STEAM_0:" + sid;
+        $('#in-submit').attr('disabled', 'disabled');
+        $('#in-submit').html("Processing...");
 
-  $('#in-submit').attr('disabled','disabled');
-  $('#in-submit').html("Processing...");
+        socket.emit('modules.exclserver.donate.prepare', {
+          steamid: sid,
+          amt: amt
+        }, function(err, data) {
+          if (err) throw err
 
-  socket.emit('modules.exclserver.donate.prepare',{steamid:sid, amt:amt},function(err,data){
-    if (err) throw err
+          if (!data || !data.url) {
+            return;
+          }
 
-    if (!data || !data.url) {
-      return;
-    }
-
-    window.location.replace(data.url);
-  })
-}
-
-</script>
+          window.location.replace(data.url);
+        })
+      }
+    })();
+  </script>
