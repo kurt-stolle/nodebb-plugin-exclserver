@@ -1,5 +1,4 @@
-<h1>Server list</h1>
-<p>This is a work in progress feature. Click connect to connect to a server via Steam.</p>
+<p>Click connect to connect to a server via Steam.</p>
 <table class="table table-bordered">
   <thead>
     <tr>
