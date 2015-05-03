@@ -3,7 +3,7 @@
     "name": "ExclServern",
     "description": "ExclServer integration for NodeBB",
     "url": "https://github.com/kurt-stolle/nodebb-plugin-exclserver",
-    "library": "./plugin.js",
+    "library": "./lib/index.js",
     "templates": "./templates",
     "hooks": [
   		{
