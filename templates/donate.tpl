@@ -1,3 +1,5 @@
+<script src="/plugins/nodebb-plugin-exclserver/static/src/donate.js"></script>
+
 <div class="jumbotron">
   <h1>Hello, future donator.</h1>
   <p>On this page you can make a donation to Casual Bananas. For each 1 USD you donate we will reward you 1000 in-game bananas that can be used to buy various items and effects through ExclServer.</p>
@@ -6,8 +8,8 @@
   <div class="row">
     <div class="col col-sm-7">
       <h3>Donation Terms and Conditions</h3>
-      <div class="well" style="overflow-y: scroll; height:500px;">
-        <ol>
+      <div class="well" style="overflow-y: scroll; height:500px; padding: 3.3em">
+        <ol style="padding-left: 1em">
           <li>
             <p>
               <strong>Refund Policy</strong>
@@ -52,12 +54,12 @@
     </div>
     <div class="col col-sm-5 pull-right">
       <h3>Payment Details</h3>
-      <div class="well">
+      <div class="well" style="padding: 3.3em">
         <div class="row">
           <p>
             <strong>Full name:</strong>
           </p>
-          <div class="input-group">
+          <div class="input">
             <input type="text" class="form-control">
           </div>
         </div>
@@ -98,40 +100,3 @@
       </div>
     </div>
   </div>
-
-  <script>
-    'use strict';
-
-    (function() {
-      function prepareDonation() {
-        var sid = String($('#in-steam').val());
-        var amt = Number($('#in-amount').val());
-
-        if (isNaN(amt)) {
-          return;
-        }
-
-        amt = Math.floor(amt);
-
-        sid.replace("STEAM_0:", "")
-
-        sid = "STEAM_0:" + sid;
-
-        $('#in-submit').attr('disabled', 'disabled');
-        $('#in-submit').html("Processing...");
-
-        socket.emit('modules.exclserver.donate.prepare', {
-          steamid: sid,
-          amt: amt
-        }, function(err, data) {
-          if (err) throw err
-
-          if (!data || !data.url) {
-            return;
-          }
-
-          window.location.replace(data.url);
-        })
-      }
-    })();
-  </script>

@@ -4,23 +4,19 @@
 var plugin = {},
 	request = require('request'),
 	Settings = require('./lib/settings');
-// PAGE RENDERING
 
-// -> admin page
+// ROUTING / RENDERING
+
 function renderAdmin(req, res, next) {
 	res.render('admin/exclserver', {
 		'api': Settings.get().api
 	});
 }
-
-// -> servers page
 function renderServers(req, res, next) {
-	res.render('exclserver/servers', {});
+	res.render('servers', {});
 }
-
-// -> donate page
 function renderDonate(req, res, next) {
-	res.render('exclserver/donate', {});
+	res.render('donate', {});
 }
 
 // HOOKS
@@ -32,7 +28,13 @@ plugin.addAdminNavigation = function (header, callback) {
 	});
 
 	callback(null, header);
-};
+}
+
+plugin.getScripts = function(scripts, callback) {
+	console.log("These scripts will load: ");
+	console.log(scripts);
+	callback(null, scripts);
+}
 
 plugin.init = function (params, callback) {
 	var app = params.router,
