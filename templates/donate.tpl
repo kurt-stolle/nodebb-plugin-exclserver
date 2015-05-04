@@ -95,7 +95,7 @@
         <br />
         <div class="row">
           <p>By clicking the button below you agree to the Donation Terms and Conditions document presented left of this panel</p>
-          <button id="in-submit" onclick="prepareDonation()" class="btn btn-default btn-lg btn-block" type="submit">Donate through PayPal</button>
+          <button id="in-submit" class="btn btn-default btn-lg btn-block" type="submit">Donate through PayPal</button>
         </div>
       </div>
     </div>
