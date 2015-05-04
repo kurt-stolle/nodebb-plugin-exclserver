@@ -1,7 +1,9 @@
 'use strict';
 
 (function () {
-	socket.on('connect', function () {
+	if (!app) throw Error("NodeBB not loaded!");
+
+	function loadServers() {
 		socket.emit('modules.exclserver.servers.get', {}, function (err, data) {
 			if (err) throw err;
 
@@ -31,5 +33,13 @@
 			}
 			$('[data-toggle="tooltip"]').tooltip()
 		});
-	});
+	}
+
+	if (app.isConnected) {
+		loadServers();
+	} else {
+		socket.on('connect', function () {
+			loadServers();
+		});
+	}
 })();
