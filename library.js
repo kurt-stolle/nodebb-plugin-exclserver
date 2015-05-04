@@ -31,8 +31,6 @@ plugin.addAdminNavigation = function (header, callback) {
 }
 
 plugin.getScripts = function(scripts, callback) {
-	console.log("These scripts will load: ");
-	console.log(scripts);
 	callback(null, scripts);
 }
 
