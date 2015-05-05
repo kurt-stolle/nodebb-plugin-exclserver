@@ -9,7 +9,7 @@ var plugin = {},
 
 function renderAdmin(req, res, next) {
 	res.render('admin/exclserver', {
-		'api': Settings.get().api
+		'api': Settings.get().url
 	});
 }
 function renderServers(req, res, next) {
@@ -50,7 +50,7 @@ plugin.init = function (params, callback) {
 
 	var SocketAdmin = require.main.require('./src/socket.io/admin');
 	SocketAdmin.settings.saveExclServer = function (socket, data, callback) {
-		Settings.set('api', data.api);
+		Settings.set('api', data.url);
 		Settings.persist();
 
 		callback();
