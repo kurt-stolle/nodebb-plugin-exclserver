@@ -77,8 +77,8 @@
           <p>
             <strong>SteamID:</strong> (<a href="http://steamidfinder.com/">?</a>)</p>
           <div class="input-group">
-            <span id="in-steam" class="input-group-addon">STEAM_0:</span>
-            <input type="text" class="form-control">
+            <span class="input-group-addon">STEAM_0:</span>
+            <input id="in-steam" type="text" class="form-control">
           </div>
         </div>
         <br />

@@ -1,6 +1,6 @@
 {
   "id": "nodebb-plugin-exclserver",
-  "name": "ExclServern",
+  "name": "ExclServer NodeBB",
   "description": "ExclServer integration for NodeBB",
   "url": "https://github.com/kurt-stolle/nodebb-plugin-exclserver",
   "library": "./library.js",
